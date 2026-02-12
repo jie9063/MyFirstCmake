@@ -1,0 +1,38 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "STM32F401RE Debug (OpenOCD)",
+      "type": "cortex-debug",
+      "request": "launch",
+      "servertype": "openocd",
+      "cwd": "${workspaceFolder}",
+      "executable": "${workspaceFolder}/build/MyFirstCmake.elf",
+      "device": "STM32F401RE",
+      "interface": "swd",
+      "configFiles": [
+        "${workspaceFolder}/openocd.cfg"
+      ],
+      "runToEntryPoint": "main"
+    },
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": false,
+      "externalConsole": true,
+      "cwd": "d:/MCU/MyFirstCmake/Drivers/CMSIS/RTOS2/Source",
+      "program": "d:/MCU/MyFirstCmake/Drivers/CMSIS/RTOS2/Source/build/Debug/outDebug",
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    }
+  ]
+}
