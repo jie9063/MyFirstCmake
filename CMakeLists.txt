@@ -21,12 +21,18 @@ set(SOURCES
     Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c
     Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c
     Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c
+    Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c
     Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c
     Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c
+    Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc.c
+    Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c
     Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c
     Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c
     Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c
     startup_stm32f401xe.s
+    Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c
+    Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c
+
 )
 
 add_executable(${TARGET}.elf ${SOURCES})
@@ -78,7 +84,8 @@ add_custom_command(TARGET ${TARGET}.elf POST_BUILD
 )
 
 add_custom_target(flash
-    COMMAND openocd -f ${CMAKE_SOURCE_DIR}/openocd.cfg -c "program ${CMAKE_BINARY_DIR}/${TARGET}.elf verify reset exit"
+    COMMAND openocd -f ${CMAKE_SOURCE_DIR}/openocd.cfg
+            -c "program ${CMAKE_BINARY_DIR}/${TARGET}.elf verify reset exit"
     DEPENDS ${TARGET}.elf
     USES_TERMINAL
 )

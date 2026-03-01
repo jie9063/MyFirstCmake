@@ -72,6 +72,10 @@ void Error_Handler(void);
 #define SWO_Pin GPIO_PIN_3
 #define SWO_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */
+#define LED_HOUR_Pin GPIO_PIN_0
+#define LED_HOUR_GPIO_Port GPIOB
+#define LED_MIN_Pin GPIO_PIN_1
+#define LED_MIN_GPIO_Port GPIOB
 
 /* USER CODE END Private defines */
 

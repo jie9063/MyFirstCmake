@@ -6,10 +6,15 @@
       "type": "cortex-debug",
       "request": "launch",
       "servertype": "openocd",
+      "showDevDebugOutput": "raw",
       "cwd": "${workspaceFolder}",
       "executable": "${workspaceFolder}/build/MyFirstCmake.elf",
       "device": "STM32F401RE",
       "interface": "swd",
+      "serverArgs": [
+        "-c",
+        "adapter speed 1000"
+      ],
       "configFiles": [
         "${workspaceFolder}/openocd.cfg"
       ],
